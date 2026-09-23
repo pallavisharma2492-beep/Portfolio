@@ -115,7 +115,7 @@ const EXPERIENCE = [
     ],
   },
   {
-    title: "Business Analyst Consultant",
+    title: "Business Analyst",
     company: "JSW",
     period: "Aug 2015 – Feb 2019",
     bullets: [
@@ -127,7 +127,7 @@ const EXPERIENCE = [
     ],
   },
   {
-    title: "Jr. Data Analyst Consultant",
+    title: "Jr. Data Analyst",
     company: "JSW",
     period: "Aug 2014 – Aug 2015",
     bullets: [
