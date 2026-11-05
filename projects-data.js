@@ -1,5 +1,13 @@
 const PROJECTS = [
   {
+    title: "AI Invoice Extraction & Reconciliation System",
+    description: "Built a system to extract invoice information and support reconciliation, bringing automation to invoice processing.",
+    icon: "🤖",
+    tags: ["AI & Automation", "Invoice Processing", "Reconciliation"],
+    link: null,
+    linkLabel: "Project details coming soon",
+  },
+  {
     title: "Financial Complaints Dashboard",
     description: "Tableau dashboard tracking complaint volume, responsiveness, no-cost resolutions, issue categories, and regional trends to surface service pain points and operational bottlenecks.",
     image: "images/1.jpg",
