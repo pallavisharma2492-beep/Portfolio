@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Invoice Extraction &amp; Reconciliation Demo | Pallavi Singh</title>
+  <link rel="stylesheet" href="invoice-reconciliation.css" />
+</head>
+<body>
+  <header class="demo-header">
+    <a class="back-link" href="index.html#projects">&larr; Back to portfolio</a>
+    <span class="demo-label">AI &amp; Automation Project</span>
+  </header>
+
+  <main class="demo-shell">
+    <section class="hero-panel">
+      <p class="eyebrow">Invoice2Data</p>
+      <h1>Invoice Extraction &amp; Reconciliation</h1>
+      <p class="intro">Compare invoice line items with the approved MSA rate card and flag billing discrepancies before payment.</p>
+    </section>
+
+    <section class="upload-panel" aria-label="Document inputs">
+      <label class="file-card" for="invoiceFile">
+        <span class="file-icon">PDF</span>
+        <span><strong>Invoice</strong><small id="invoiceName">Invoice.pdf</small></span>
+      </label>
+      <input id="invoiceFile" type="file" accept=".pdf" />
+
+      <label class="file-card" for="rosterFile">
+        <span class="file-icon">PDF</span>
+        <span><strong>MSA / Rate Card</strong><small id="rosterName">Roster.pdf</small></span>
+      </label>
+      <input id="rosterFile" type="file" accept=".pdf" />
+
+      <button id="runButton" class="run-button" type="button">Run reconciliation</button>
+    </section>
+
+    <section id="results" class="results" aria-live="polite">
+      <div class="summary-grid">
+        <article class="summary-card">
+          <span>Invoice total</span>
+          <strong id="invoiceTotal">$116,120.00</strong>
+        </article>
+        <article class="summary-card">
+          <span>Expected total</span>
+          <strong id="expectedTotal">$114,456.00</strong>
+        </article>
+        <article class="summary-card alert">
+          <span>Potential overbilling</span>
+          <strong id="varianceTotal">$1,664.00</strong>
+        </article>
+        <article class="summary-card">
+          <span>Exceptions</span>
+          <strong id="exceptionCount">2 of 10 lines</strong>
+        </article>
+      </div>
+
+      <div class="table-toolbar">
+        <div>
+          <p class="eyebrow">Reconciliation result</p>
+          <h2>Line-item exceptions</h2>
+        </div>
+        <button id="downloadButton" class="download-button" type="button">Download CSV</button>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Employee</th>
+              <th>Designation</th>
+              <th>Invoiced rate</th>
+              <th>Contract rate</th>
+              <th>Hours</th>
+              <th>Variance</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody id="resultsBody"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <script src="invoice-reconciliation.js"></script>
+</body>
+</html>

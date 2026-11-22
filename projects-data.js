@@ -1,11 +1,11 @@
 const PROJECTS = [
   {
     title: "AI Invoice Extraction & Reconciliation System",
-    description: "Built a system to extract invoice information and support reconciliation, bringing automation to invoice processing.",
+    description: "Invoice extraction and reconciliation workflow that compares billed labor lines against MSA rate cards, flags mismatches, and calculates overbilling exposure.",
     icon: "🤖",
-    tags: ["AI & Automation", "Invoice Processing", "Reconciliation"],
-    link: null,
-    linkLabel: "Project details coming soon",
+    tags: ["Python", "PDF Extraction", "Reconciliation"],
+    link: "invoice-reconciliation.html",
+    linkLabel: "Open live demo",
   },
   {
     title: "Financial Complaints Dashboard",
