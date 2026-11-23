@@ -21,6 +21,16 @@ const chartDefaults = {
 };
 Chart.defaults.color = chartDefaults.color;
 Chart.defaults.font = chartDefaults.font;
+const storedTheme = localStorage.getItem('ar-theme') || 'dark';
+document.body.classList.toggle('light', storedTheme === 'light');
+
+function updateThemeControl() {
+  const lightMode = document.body.classList.contains('light');
+  const toggle = document.getElementById('themeToggle');
+  toggle.title = lightMode ? 'Switch to dark mode' : 'Switch to light mode';
+  toggle.setAttribute('aria-label', toggle.title);
+  toggle.querySelector('span').textContent = lightMode ? 'Dark mode' : 'Light mode';
+}
 
 function renderCustomers(data = customerData) {
   document.getElementById('customerRows').innerHTML = data.map((customer) => `<tr><td><strong>${customer.name}</strong></td><td>${customer.region}</td><td><strong>${customer.overdue}</strong></td><td><span class="risk ${customer.risk.toLowerCase()}">${customer.risk}</span></td><td>${customer.owner}</td></tr>`).join('');
@@ -43,6 +53,17 @@ new Chart(document.getElementById('barrierChart'), { type: 'doughnut', data: { l
 new Chart(document.getElementById('forecastChart'), { type: 'bar', data: { labels: ['Next 30 days', '31–60 days', '61–90 days'], datasets: [{ data: [1.52, .58, .35], backgroundColor: ['#31d1bb', '#36a9ff', '#f5b75b'], borderRadius: 5, borderSkipped: false, barThickness: 38 }] }, options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false }, tooltip: { callbacks: { label: (context) => ` $${context.raw}M expected cash` }, backgroundColor: '#0a1728', borderColor: '#2a4663', borderWidth: 1, padding: 10 } }, scales: { x: { grid: { display: false }, border: { display: false } }, y: { grid: gridLines, border: { display: false }, ticks: { callback: (value) => `$${value}M`, maxTicksLimit: 4 } } } } });
 new Chart(document.getElementById('latePayerChart'), { type: 'bar', data: { labels: ['Walmart', 'Tesla', 'Amazon', 'Target', 'Costco'], datasets: [{ data: [5, 4, 3, 2, 1], backgroundColor: ['#ff7f72', '#ff7f72', '#f5b75b', '#31d1bb', '#31d1bb'], borderRadius: 5, borderSkipped: false, barThickness: 24 }] }, options: { indexAxis: 'y', responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false }, tooltip: { callbacks: { label: (context) => ` ${context.raw} late payments` }, backgroundColor: '#0a1728', borderColor: '#2a4663', borderWidth: 1, padding: 10 } }, scales: { x: { beginAtZero: true, grid: gridLines, border: { display: false }, ticks: { stepSize: 1 } }, y: { grid: { display: false }, border: { display: false } } } } });
 
+function updateChartTheme() {
+  Chart.defaults.color = document.body.classList.contains('light') ? '#60758b' : '#8295af';
+}
+
+document.getElementById('themeToggle').addEventListener('click', () => {
+  document.body.classList.toggle('light');
+  localStorage.setItem('ar-theme', document.body.classList.contains('light') ? 'light' : 'dark');
+  updateThemeControl();
+  updateChartTheme();
+});
+
 document.querySelectorAll('.report-tab').forEach((tab) => tab.addEventListener('click', () => { document.querySelectorAll('.report-tab').forEach((item) => item.classList.remove('active')); tab.classList.add('active'); document.getElementById(tab.dataset.target).scrollIntoView({ behavior: 'smooth', block: 'start' }); }));
 
 function updateFilters() {
@@ -63,3 +84,5 @@ document.getElementById('barrierDetail').addEventListener('click', () => { docum
 renderCustomers();
 renderInvoices();
 lucide.createIcons();
+updateThemeControl();
+updateChartTheme();
