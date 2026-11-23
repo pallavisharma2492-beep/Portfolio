@@ -1,9 +1,9 @@
 const PROJECTS = [
   {
-    title: "AI Invoice Extraction & Reconciliation System",
-    description: "Invoice extraction and reconciliation workflow that compares billed labor lines against MSA rate cards, flags mismatches, and calculates overbilling exposure.",
-    icon: "🤖",
-    tags: ["Python", "PDF Extraction", "AI & Automation", "Reconciliation"],
+    title: "Accounts Receivable Command Center",
+    description: "Interactive AR dashboard for aging analysis, collection trends, expected cash recovery, dispute barriers, invoice detail, and customer payment behavior.",
+    icon: "📊",
+    tags: ["Accounts Receivable", "Collections Analytics", "Dashboarding"],
     link: "dashboards/accounts-receivable-command-center/",
     linkLabel: "Open AR Command Center",
   },
