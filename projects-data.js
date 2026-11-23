@@ -100,7 +100,7 @@ const PROJECTS = [
 const EXPERIENCE = [
   {
     title: "Project Cost Analyst Consultant",
-    company: "SDG&E (Consultant)",
+    company: "SDG&E",
     period: "Jun 2022 – Present",
     bullets: [
       "Manage $50M+ in active project costs, strengthening accounting controls and driving process efficiencies across cross-functional teams.",
