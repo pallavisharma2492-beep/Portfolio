@@ -2,7 +2,7 @@ const PROJECTS = [
   {
     title: "Accounts Receivable Command Center",
     description: "Interactive AR dashboard for aging analysis, collection trends, expected cash recovery, dispute barriers, invoice detail, and customer payment behavior.",
-    image: "images/accounts-receivable-command-center.png",
+    image: "images/ar-command-center-logo.svg",
     tags: ["Accounts Receivable", "Collections Analytics", "Dashboarding"],
     link: "dashboards/accounts-receivable-command-center/",
     linkLabel: "Open AR Command Center",
